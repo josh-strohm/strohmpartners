@@ -1,0 +1,93 @@
+.footer {
+  padding: var(--space-16) 0 var(--space-8);
+  background: var(--color-bg-accent-light);
+  border-top: 1px solid var(--color-border);
+  margin-top: auto;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+  margin-bottom: var(--space-12);
+}
+
+@media (min-width: 768px) {
+  .content {
+    grid-template-columns: 1.5fr 1fr;
+  }
+}
+
+.brand {
+  max-width: 320px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 600;
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  margin-bottom: var(--space-4);
+}
+
+.logo:hover {
+  color: var(--color-text);
+}
+
+.tagline {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.nav {
+  display: flex;
+  gap: var(--space-12);
+}
+
+.navGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.navTitle {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-subtle);
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.navList a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  transition: color var(--transition-fast);
+}
+
+.navList a:hover {
+  color: var(--color-accent);
+}
+
+.bottom {
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--color-border);
+}
+
+.copyright {
+  font-size: 0.875rem;
+  color: var(--color-text-subtle);
+}

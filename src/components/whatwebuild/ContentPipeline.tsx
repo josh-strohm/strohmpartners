@@ -22,17 +22,17 @@ const cannedOutputs: Record<string, Output> = {
   professional: {
     platform: 'linkedin',
     handle: 'strohm_partners',
-    content: 'The most successful businesses we work with share one trait: their systems run while they sleep. Lead capture, content publishing, task routing — all automatic. The question isn\'t whether to automate, it\'s where to start.\n\nWe help businesses build the systems that scale without proportionally scaling headcount.',
+    content: 'The most successful businesses we work with share one trait: they identify exactly where AI fits in their workflows. Strategic touchpoints, lead sorting, and data mapping are all custom-integrated. The question isn\'t whether to use AI, it\'s where it drives the highest ROI.\n\nWe help businesses audit workflows and engineer the custom systems that scale operations.',
   },
   casual: {
     platform: 'twitter',
     handle: '@strohmpartners',
-    content: 'Hot take: most small businesses are spending way too much time on work that should be automatic.\n\nLeads sitting in forms. Content nobody sees. Tasks that nobody remembers.\n\nWe fix that. One system at a time.',
+    content: 'Hot take: most growing companies spend far too much time on manual friction that custom AI could resolve.\n\nRaw leads sitting in inbox backlogs. Content drafted without voice alignment. Friction bottlenecks in operations.\n\nWe audit your workflows and integrate custom AI solutions to eliminate the friction.',
   },
   technical: {
     platform: 'linkedin',
     handle: 'strohm_partners',
-    content: 'Systems design matters more than tool selection.\n\nThe businesses that benefit most from automation aren\'t the ones using the most tools — they\'re the ones who\'ve mapped their workflows correctly.\n\nBefore you add another automation, map what you have. You might find you need less than you think.',
+    content: 'Systems design matters more than tool selection.\n\nThe businesses that benefit most from AI integration are not the ones chasing flashy hype; they are the ones who have audited their workflows and mapped data paths.\n\nBefore you deploy an AI model, perform a diagnostic audit to find where it fits.',
   },
 };
 
@@ -79,7 +79,7 @@ export function ContentPipeline() {
     <div className={styles.container}>
       <div className={styles.header}>
         <h4 className={styles.title}>See it work</h4>
-        <p className={styles.subtitle}>This is what content automation looks like — topic in, published post out.</p>
+        <p className={styles.subtitle}>This is what a custom-trained brand voice pipeline looks like, turning a raw topic into a strategic post.</p>
       </div>
 
       <AnimatePresence mode="wait">
@@ -98,7 +98,7 @@ export function ContentPipeline() {
                 type="text"
                 value={topic}
                 onChange={e => setTopic(e.target.value)}
-                placeholder="e.g., why small businesses should automate"
+                placeholder="e.g., how AI integration drives operational ROI"
                 className={styles.input}
               />
             </div>
@@ -162,7 +162,7 @@ export function ContentPipeline() {
             <p className={styles.processingLabel}>
               {stages[getCurrentStageIndex()]?.label}...
             </p>
-            <p className={styles.processingText}>Building content on: "{topic}"</p>
+            <p className={styles.processingText}>Drafting voice-aligned content on: "{topic}"</p>
           </motion.div>
         )}
 
@@ -203,7 +203,7 @@ export function ContentPipeline() {
       </AnimatePresence>
 
       <p className={styles.note}>
-        No content is actually generated — this demonstrates the workflow shape.
+        No content is actually generated; this is a simulation to demonstrate the workflow shape.
       </p>
     </div>
   );

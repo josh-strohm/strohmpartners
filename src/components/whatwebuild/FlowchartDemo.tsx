@@ -202,7 +202,7 @@ export function FlowchartDemo() {
       </div>
 
       <p className={styles.note}>
-        This is a simplified demo — real workflows can have unlimited branching and conditions.
+        This is a simplified demo; real workflows can have unlimited branching and conditions.
       </p>
     </div>
   );

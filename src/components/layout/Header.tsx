@@ -25,7 +25,7 @@ export function Header() {
 
   const navLinks = [
     { to: '/', label: 'Home' },
-    { to: '/what-we-build', label: 'What We Build' },
+    { to: '/what-we-build', label: 'Services' },
     { to: '/contact', label: 'Contact' },
   ];
 
@@ -33,7 +33,7 @@ export function Header() {
     <header className={cn(styles.header, scrolled && styles.scrolled)}>
       <div className={cn('container', styles.container)}>
         <Link to="/" className={styles.logo}>
-          <img src="/strohm-partners-nobg.png" alt="Strohm Partners" width="260" />
+          <img src="/StrohmPartnersLLC_Logo_Nobg.png" alt="Strohm Partners" />
         </Link>
 
         <nav className={styles.nav} aria-label="Main navigation">

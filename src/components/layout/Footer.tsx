@@ -10,10 +10,10 @@ export function Footer() {
         <div className={styles.content}>
           <div className={styles.brand}>
             <Link to="/" className={styles.logo}>
-              <img src="/strohm-partners-nobg.png" alt="Strohm Partners" width="260" />
+              <img src="/StrohmPartnersLLC_Logo_Nobg.png" alt="Strohm Partners" width="260" />
             </Link>
             <p className={styles.tagline}>
-              AI automation agency building the digital systems modern businesses depend on.
+              AI consulting and systems engineering. Helping businesses identify where AI fits and building the custom integrations to make it work.
             </p>
           </div>
 
@@ -22,8 +22,16 @@ export function Footer() {
               <h4 className={styles.navTitle}>Site</h4>
               <ul className={styles.navList}>
                 <li><Link to="/">Home</Link></li>
-                <li><Link to="/what-we-build">What We Build</Link></li>
+                <li><Link to="/what-we-build">Services</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
+              </ul>
+            </div>
+            <div className={styles.navGroup}>
+              <h4 className={styles.navTitle}>Legal</h4>
+              <ul className={styles.navList}>
+                <li><Link to="/terms">Terms of Service</Link></li>
+                <li><Link to="/privacy">Privacy Policy</Link></li>
+                <li><Link to="/refund-policy">Refund Policy</Link></li>
               </ul>
             </div>
           </nav>

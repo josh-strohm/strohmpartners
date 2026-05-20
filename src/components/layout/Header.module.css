@@ -34,6 +34,14 @@
   font-size: 1.125rem;
 }
 
+.logo img {
+  height: 96px;
+  width: auto;
+  max-width: min(480px, 70vw);
+  object-fit: contain;
+  display: block;
+}
+
 .logo:hover {
   color: var(--color-text);
 }

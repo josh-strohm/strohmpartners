@@ -133,3 +133,51 @@
   max-width: 720px;
   margin: 0 auto;
 }
+
+.contactDetails {
+  padding: var(--space-6);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.detailsList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.detailsItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.detailsItem strong {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+  letter-spacing: 0.05em;
+}
+
+.detailsLink {
+  font-size: 0.9375rem;
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+  width: fit-content;
+}
+
+.detailsLink:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.detailsText {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}

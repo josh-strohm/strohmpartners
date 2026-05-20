@@ -17,7 +17,7 @@ const pillars = [
       </svg>
     ),
     description: 'Leads arrive, get qualified, and route automatically.',
-    flow: 'A visitor submits a form. The system instantly qualifies the lead, adds them to your CRM, triggers a welcome sequence, and notifies the right person — all before you even see the notification.',
+    flow: 'A visitor submits a form. The system instantly qualifies the lead, adds them to your CRM, triggers a welcome sequence, and notifies the right person, completing the loop before you even see the notification.',
   },
   {
     id: 'content' as const,
@@ -30,7 +30,7 @@ const pillars = [
       </svg>
     ),
     description: 'Content drafts, schedules, and publishes on its own.',
-    flow: 'Your content system drafts a post based on your guidelines, formats it for each platform, schedules it at optimal times, and publishes — maintaining your brand voice across every channel without manual effort.',
+    flow: 'Your content system drafts a post based on your guidelines, formats it for each platform, schedules it at optimal times, and publishes, which maintains your brand voice across every channel without manual effort.',
   },
   {
     id: 'process' as const,
@@ -42,7 +42,7 @@ const pillars = [
       </svg>
     ),
     description: 'Workflows trigger, tasks complete, teams stay in sync.',
-    flow: 'A new client signs. The system sends the contract, creates their folder, sets up their profile in your tools, and alerts your team — starting the engagement before anyone on your side has touched a single task.',
+    flow: 'A new client signs. The system sends the contract, creates their folder, sets up their profile in your tools, and alerts your team, starting the engagement before anyone on your side has touched a single task.',
   },
 ];
 

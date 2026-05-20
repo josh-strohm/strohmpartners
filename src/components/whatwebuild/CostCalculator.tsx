@@ -87,7 +87,7 @@ export function CostCalculator() {
           animate={{ opacity: 1 }}
           transition={{ duration: reducedMotion ? 0 : 0.3 }}
         >
-          That's likely enough to fund a meaningful automation project — and reclaim those hours permanently.
+          That's likely enough to fund a custom AI systems integration roadmap and reclaim those hours permanently.
         </motion.p>
       )}
     </div>

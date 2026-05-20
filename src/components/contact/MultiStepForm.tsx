@@ -24,10 +24,10 @@ interface Errors {
 }
 
 const serviceTypes = [
-  { value: 'websites', label: 'Website & Web Automation' },
-  { value: 'content', label: 'Content & Social Automation' },
-  { value: 'process', label: 'Business Process Automation' },
-  { value: 'multiple', label: 'Multiple / Not sure yet' },
+  { value: 'websites', label: 'Web & AI Acquisition Funnels' },
+  { value: 'content', label: 'Content Voice & Scaling Systems' },
+  { value: 'process', label: 'AI Operational Audits & Integrations' },
+  { value: 'multiple', label: 'Comprehensive AI Strategy Consulting' },
 ];
 
 const budgetRanges = [
@@ -38,7 +38,7 @@ const budgetRanges = [
 ];
 
 const steps = [
-  { id: 1, title: 'Your project', description: 'What are you looking to build?' },
+  { id: 1, title: 'Your goals', description: 'What are your operational goals?' },
   { id: 2, title: 'Your budget', description: 'Help us understand the scope.' },
   { id: 3, title: 'Your details', description: 'How do we reach you?' },
 ];
@@ -83,7 +83,7 @@ export function MultiStepForm() {
 
     if (step === 1) {
       if (!data.serviceType) errs.serviceType = 'Please select a service type';
-      if (!data.projectDescription.trim()) errs.projectDescription = 'Please describe your project';
+      if (!data.projectDescription.trim()) errs.projectDescription = 'Please describe your operational needs';
       else if (data.projectDescription.trim().length < 20) errs.projectDescription = 'Please provide more detail (at least 20 characters)';
     }
 
@@ -241,13 +241,13 @@ export function MultiStepForm() {
               </div>
 
               <div className={styles.field}>
-                <label htmlFor="projectDescription" className={styles.label}>Describe your project</label>
+                <label htmlFor="projectDescription" className={styles.label}>Describe your business and operational needs</label>
                 <textarea
                   id="projectDescription"
                   value={formData.projectDescription}
                   onChange={e => setFormData(p => ({ ...p, projectDescription: e.target.value }))}
                   onBlur={() => handleBlur('projectDescription')}
-                  placeholder="What are you trying to accomplish? What's working and what isn't?"
+                  placeholder="What bottlenecks are your team facing? Where do you suspect AI could help streamline your operations?"
                   rows={4}
                   className={cn(styles.textarea, touched.projectDescription && errors.projectDescription && styles.inputError)}
                 />

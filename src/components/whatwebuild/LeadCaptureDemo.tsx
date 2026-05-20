@@ -45,16 +45,16 @@ export function LeadCaptureDemo() {
   };
 
   const stages = [
-    { id: 'qualifying', label: 'Qualifying lead', icon: '🔍' },
-    { id: 'routing', label: 'Routing to CRM', icon: '📥' },
-    { id: 'acknowledging', label: 'Sending confirmation', icon: '✉️' },
+    { id: 'qualifying', label: 'AI Intent & Scoring', icon: '🔍' },
+    { id: 'routing', label: 'Mapping Playbook', icon: '📥' },
+    { id: 'acknowledging', label: 'Tailoring Roadmap', icon: '✉️' },
   ];
 
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <h4 className={styles.title}>See it work</h4>
-        <p className={styles.subtitle}>This is what lead capture looks like with automation built in.</p>
+        <p className={styles.subtitle}>This is what lead capture looks like with custom AI qualification built in.</p>
       </div>
 
       <AnimatePresence mode="wait">
@@ -154,9 +154,9 @@ export function LeadCaptureDemo() {
               })}
             </div>
             <p className={styles.processingText}>
-              {stage === 'qualifying' && 'Checking lead quality and completeness...'}
-              {stage === 'routing' && 'Sending to CRM and assigning to territory...'}
-              {stage === 'acknowledging' && 'Dispatching personalized confirmation email...'}
+              {stage === 'qualifying' && 'AI agent scoring intent, company size, and budget alignment...'}
+              {stage === 'routing' && 'Mapping lead challenges to custom integration playbooks...'}
+              {stage === 'acknowledging' && 'Generating hyper-personalized tailored roadmap email...'}
             </p>
           </motion.div>
         )}
@@ -182,7 +182,7 @@ export function LeadCaptureDemo() {
             </motion.div>
             <h4 className={styles.doneTitle}>Lead captured</h4>
             <p className={styles.doneText}>
-              {formData.name} from {formData.company} has been qualified, routed, and acknowledged — all without manual intervention.
+              {formData.name} from {formData.company} has been analyzed, scored, and mapped to a custom AI integration playbook by our system.
             </p>
             <button onClick={reset} className={styles.resetButton}>
               Try again
@@ -192,7 +192,7 @@ export function LeadCaptureDemo() {
       </AnimatePresence>
 
       <p className={styles.note}>
-        No data is sent anywhere — this is a simulation.
+        No data is sent anywhere; this is a simulation.
       </p>
     </div>
   );

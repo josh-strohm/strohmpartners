@@ -26,22 +26,22 @@ const pillars = [
         <line x1="12" y1="17" x2="12" y2="21" />
       </svg>
     ),
-    title: 'Websites & Web Automation',
-    tagline: 'Custom-designed, built for conversion.',
-    description: 'We build sites that do more than look good. Every site we build is designed around a clear purpose: capturing leads, qualifying them automatically, and routing them to the right place. No more lost leads, no more manual follow-up.',
+    title: 'Web & AI Acquisition Funnels',
+    tagline: 'Advising on and engineering smart lead pipelines.',
+    description: 'We audit your customer acquisition journey to find where AI integration drives real conversion. We design intelligent scoring mechanisms, qualification funnels, and data synchronization schemas, then build the custom site architectures to operate them.',
     symptoms: [
-      'Leads come in but nothing happens until you personally follow up',
-      'Your website doesn\'t integrate with your CRM or email system',
-      'You\'re manually copying leads from web forms into spreadsheets',
-      'Your site loads slowly and you\'re not sure why',
+      'You are unsure where AI actually fits in your sales and lead generation pipeline',
+      'High-quality prospects get lost because response times are slow or require manual checks',
+      'Your sales team spends valuable hours manually sorting and entering leads into CRM systems',
+      'Your web infrastructure fails to pass clean, enriched data directly to your sales tools',
     ],
     deliverables: [
-      'Custom-designed site built to your brand and goals',
-      'Lead capture forms with automatic qualification routing',
-      'CRM and email integrations that work automatically',
-      'Performance optimization for speed and SEO',
+      'Comprehensive customer touchpoint and acquisition funnel audit',
+      'Custom lead capture architectures with automated qualification algorithms',
+      'Seamless API integrations to sync customer insights directly to your CRM',
+      'High-performance, accessible, and search-optimized web architectures',
     ],
-    idealClient: 'You want a website that works as hard as you do — capturing and qualifying leads around the clock, without adding to your workload.',
+    idealClient: 'You want to transform your static website into an intelligent, self-qualifying pipeline that aligns marketing with sales and maximizes client acquisition ROI.',
     demo: <LeadCaptureDemo />,
   },
   {
@@ -53,22 +53,22 @@ const pillars = [
         <circle cx="5" cy="19" r="1" />
       </svg>
     ),
-    title: 'Content & Social Automation',
-    tagline: 'On-brand content, consistently published.',
-    description: 'Content systems that plan, draft, format, schedule, and publish — automatically. Your brand voice stays consistent even when the team is small. You own the system, not just the output.',
+    title: 'Content Voice & Scaling Systems',
+    tagline: 'Preserving authentic voice while maximizing output.',
+    description: 'We design custom voice models and distribution architectures. We analyze your brand identity to isolate where AI can accelerate your research, drafting, and cross-channel formatting while ensuring your experts remain firmly in the editorial driver\'s seat.',
     symptoms: [
-      'You know you should be publishing more but can\'t keep up',
-      'Social media is "someone\'s job" but they\'re always behind',
-      'Content feels inconsistent or off-brand',
-      'You\'re spending hours creating content that doesn\'t move the needle',
+      'Your creative staff spends more time formatting and copy-pasting than ideating and editing',
+      'You want to leverage generative AI but fear losing your premium brand standards or voice',
+      'Multi-channel consistency is impossible because posting relies on ad-hoc, manual routines',
+      'Your content marketing efforts feel siloed and lack a defined, data-backed operational system',
     ],
     deliverables: [
-      'Content planning and drafting workflow',
-      'Multi-channel publishing automation',
-      'Brand voice guidelines built into the system',
-      'Analytics tracking what content actually performs',
+      'Custom brand voice training frameworks and prompt engineering systems',
+      'Multi-platform editorial pipelines with human-in-the-loop review layers',
+      'Centralized asset systems designed to output unified multi-format content',
+      'Content distribution architectures connecting key tools and publishing channels',
     ],
-    idealClient: 'You want consistent, quality content across channels without hiring a full marketing team or spending every evening writing posts.',
+    idealClient: 'You want to scale a premium, high-trust media footprint across multiple platforms without overworking your key subject matter experts.',
     demo: <ContentPipeline />,
   },
   {
@@ -79,22 +79,22 @@ const pillars = [
         <polyline points="8 6 2 12 8 18" />
       </svg>
     ),
-    title: 'Business Process Automation',
-    tagline: 'Workflows that run themselves.',
-    description: 'We connect CRMs, inboxes, spreadsheets, and back-office tools into one coherent system. Manual handoffs become automatic. Your business runs itself — quietly, reliably.',
+    title: 'AI Operational Audits & Integrations',
+    tagline: 'Identifying and eliminating operational friction points.',
+    description: 'Our flagship strategic service. We perform a complete diagnostic audit of your team\'s daily operations to locate hidden cost centers. We map precisely where intelligent document processing, AI-driven routing, and API integrations can solve manual friction permanently.',
     symptoms: [
-      'You\'re manually moving data between tools that should talk to each other',
-      '"New client" means a dozen manual tasks before anything actually happens',
-      'Your team spends hours on work that should take minutes',
-      'You\'re not sure where things slip through the cracks',
+      'Your staff spends hours moving, sorting, and verifying data across isolated business systems',
+      'Client onboarding or project execution stalls due to manual administrative checklists',
+      'Human error or missing steps occur because critical tasks rely on memory instead of code',
+      'You lack structured visibility into which operational workflows are your biggest cost bottlenecks',
     ],
     deliverables: [
-      'Workflow mapping and design',
-      'System integrations that connect your tools',
-      'Automated task triggers and notifications',
-      'Clear visibility into what\'s happening and where',
+      'Deep operational workflow audit and visual system bottleneck blueprint',
+      'Intelligent document processing and automated extraction pipelines for unstructured data',
+      'Secure, custom API architectures connecting your core back-office applications',
+      'Custom executive dashboards to track integration performance and active ROI math',
     ],
-    idealClient: 'You want your business to run on systems, not memory — with clear workflows that start themselves and reporting that tells you what\'s working.',
+    idealClient: 'You want to scale your firm\'s operational capacity and increase profit margins without adding linear overhead or sacrificing work quality.',
     demo: <FlowchartDemo />,
   },
 ];
@@ -134,9 +134,9 @@ export function WhatWeBuild() {
             custom={0}
             className={styles.headerContent}
           >
-            <h1 className={styles.title}>What we build.</h1>
+            <h1 className={styles.title}>Services &amp; AI Consulting.</h1>
             <p className={styles.subtitle}>
-              Three connected capabilities. One system that works together.
+              Helping you map where AI actually fits and building the custom integrations to make it work.
             </p>
           </motion.div>
         </div>
@@ -213,7 +213,7 @@ export function WhatWeBuild() {
               >
                 <h3 className={styles.calculatorTitle}>What is this actually costing you?</h3>
                 <p className={styles.calculatorText}>
-                  Run the math on manual work — then decide if automation makes sense for your situation.
+                  Run the math on manual processes, then let's identify where custom AI integration will drive the highest operational return.
                 </p>
                 <CostCalculator />
               </motion.div>
@@ -233,12 +233,12 @@ export function WhatWeBuild() {
             custom={0}
             className={styles.ctaContent}
           >
-            <h2 className={styles.ctaTitle}>Want to see how these connect for your business?</h2>
+            <h2 className={styles.ctaTitle}>Want to identify where AI fits in your business?</h2>
             <p className={styles.ctaText}>
-              Most businesses benefit from starting with whichever pain point is most acute. We can map out the full system from there.
+              We recommend starting with an operational audit of your highest-friction bottleneck. From there, we map out a comprehensive, custom systems integration roadmap.
             </p>
             <Button magnetic as="a" href="/contact">
-              Start a conversation
+              Book an Operational Audit
             </Button>
           </motion.div>
         </div>

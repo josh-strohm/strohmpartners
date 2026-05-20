@@ -5,6 +5,9 @@ import { PageWrapper } from '@/components/layout/PageWrapper';
 import { Home } from '@/pages/Home';
 import { WhatWeBuild } from '@/pages/WhatWeBuild';
 import { Contact } from '@/pages/Contact';
+import { Terms } from '@/pages/Terms';
+import { Privacy } from '@/pages/Privacy';
+import { RefundPolicy } from '@/pages/RefundPolicy';
 
 function AppContent() {
   const location = useLocation();
@@ -17,6 +20,9 @@ function AppContent() {
           <Route path="/" element={<Home />} />
           <Route path="/what-we-build" element={<WhatWeBuild />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/refund-policy" element={<RefundPolicy />} />
         </Routes>
       </PageWrapper>
       <Footer />

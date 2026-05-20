@@ -7,23 +7,23 @@ import styles from './Home.module.css';
 const processSteps = [
   {
     number: '01',
-    title: 'Understand the system',
-    description: 'We start by mapping how work actually flows through your business — where things get stuck, where time disappears, and where opportunities slip through.',
+    title: 'Audit & Identify',
+    description: 'We start by auditing your operations to identify the highest-leverage opportunities for AI in your business and expose the hidden bottlenecks.',
   },
   {
     number: '02',
-    title: 'Design the automation',
-    description: 'We design systems that fit how your business works, not the other way around. Every automation is built around your processes, not generic templates.',
+    title: 'Map Opportunity',
+    description: 'We map out exactly where AI can fit, designing custom solution architectures that integrate smoothly into your existing business stack.',
   },
   {
     number: '03',
-    title: 'Build with intention',
-    description: 'We build what we design. No handoffs to offshore teams, no scope creep, no surprises. You work directly with the people building your systems.',
+    title: 'Build & Integrate',
+    description: 'We build what we design. No outsourcing or templates. We engineer custom AI pipelines and integrations, giving you full ownership of the systems.',
   },
   {
     number: '04',
-    title: 'Measure what matters',
-    description: 'We set up clear metrics so you can see the impact: time saved, errors eliminated, leads captured. You\'ll always know what\'s working.',
+    title: 'Measure Impact',
+    description: 'We establish clear metrics to track time saved, accuracy improvements, and return on investment. You will always see the direct value of your AI.',
   },
 ];
 
@@ -74,12 +74,12 @@ export function Home() {
             className={styles.heroText}
           >
             <h1 className={styles.heroTitle}>
-              We build the digital systems
+              We help you find where AI
               <br />
-              <span className={styles.heroAccent}>modern businesses depend on.</span>
+              <span className={styles.heroAccent}>actually fits in your business.</span>
             </h1>
             <p className={styles.heroSubtitle}>
-              AI automation agency specializing in websites, content systems, and business process automation — designed to work as one.
+              AI consulting and systems engineering. We audit your workflows, identify high-impact AI opportunities, and build the custom integrations that deliver real operational ROI.
             </p>
             <div className={styles.heroCta}>
               <Button magnetic as="a" href="/contact">
@@ -104,9 +104,9 @@ export function Home() {
             custom={0}
             className={styles.sectionHeader}
           >
-            <h2 className={styles.sectionTitle}>One practice, three connected capabilities.</h2>
+            <h2 className={styles.sectionTitle}>AI consulting with a builder's perspective.</h2>
             <p className={styles.sectionText}>
-              Most agencies offer these as separate services. We think about them as one system. Your website captures leads. Your content keeps prospects engaged. Your internal workflows deliver on promises. When all three work together, the business runs itself.
+              We don't just build systems; we help you identify the highest-leverage opportunities for AI in your business. By auditing your workflows and mapping your data, we find the exact bottlenecks where AI will drive efficiency, then we build the custom systems to solve them.
             </p>
           </motion.div>
 
@@ -126,9 +126,9 @@ export function Home() {
                   <line x1="12" y1="17" x2="12" y2="21" />
                 </svg>
               </div>
-              <h3 className={styles.pillarTitle}>Websites & Web Automation</h3>
+              <h3 className={styles.pillarTitle}>Web &amp; AI Acquisition Funnels</h3>
               <p className={styles.pillarDescription}>
-                Custom-designed sites built for conversion. Lead capture, qualification, and routing handled automatically.
+                We audit how you capture and interact with customers online. We map exactly where AI can naturally qualify prospects and route lead data, then build custom sites to support it.
               </p>
             </motion.div>
 
@@ -147,9 +147,9 @@ export function Home() {
                   <circle cx="5" cy="19" r="1" />
                 </svg>
               </div>
-              <h3 className={styles.pillarTitle}>Content & Social Automation</h3>
+              <h3 className={styles.pillarTitle}>Content Voice &amp; Scaling Systems</h3>
               <p className={styles.pillarDescription}>
-                End-to-end content systems: planning, drafting, scheduling, publishing. On-brand output without the full team.
+                We design a systematic approach to brand content. We identify where AI models can accelerate research and formatting while keeping your brand voice fully authentic and editor-approved.
               </p>
             </motion.div>
 
@@ -167,9 +167,9 @@ export function Home() {
                   <polyline points="8 6 2 12 8 18" />
                 </svg>
               </div>
-              <h3 className={styles.pillarTitle}>Business Process Automation</h3>
+              <h3 className={styles.pillarTitle}>AI Operational Audits &amp; Integrations</h3>
               <p className={styles.pillarDescription}>
-                Workflows that eliminate manual handoffs. CRMs, inboxes, spreadsheets, and back-office tools — all connected.
+                Our core advisory offering. We conduct deep workflow audits to isolate high-friction internal bottlenecks, mapping exactly where custom AI database integrations can reclaim lost hours.
               </p>
             </motion.div>
           </div>
@@ -189,7 +189,7 @@ export function Home() {
           >
             <h2 className={styles.sectionTitle}>A business as a system.</h2>
             <p className={styles.sectionText}>
-              Click any node to see how data flows between systems — and where automation transforms how work gets done.
+              Click any node to see how data flows between systems, showcasing where custom AI integrations eliminate operational friction.
             </p>
           </motion.div>
 
@@ -242,16 +242,16 @@ export function Home() {
             custom={0}
             className={styles.povContent}
           >
-            <h2 className={styles.povTitle}>We believe AI should be invisible.</h2>
+            <h2 className={styles.povTitle}>We believe AI should solve real problems.</h2>
             <div className={styles.povText}>
               <p>
-                The best automation doesn't announce itself. It just means the work gets done — leads captured, content published, invoices sent, clients notified. The AI is in the background, handling the repetitive so your team can focus on the meaningful.
+                AI is a tool, not a strategy. The value of AI isn't in deploying the flashiest new model; it's in finding where it actually fits to eliminate manual friction, reduce human error, and save your team real hours every week.
               </p>
               <p>
-                We're not here to build flashy AI demos. We're here to build systems that run while you sleep, scale without proportionally scaling headcount, and give you back the hours you spend on work that should be automatic.
+                As consultants, we start with honest math and deep workflow audits, helping you cut through the marketing noise to focus purely on ROI. We design and integrate systems that work quietly in the background while you focus on high-value client relationships.
               </p>
               <p>
-                The question we ask isn't "should we add AI to this?" It's "what would this look like if it ran itself?"
+                The question we help you answer isn't "how do we use AI?" It's "where does AI make business sense for our bottom line?"
               </p>
             </div>
           </motion.div>
@@ -273,11 +273,20 @@ export function Home() {
               <img src="/josh-strohm.png" alt="Josh Strohm" width="80" height="80" className={styles.founderImg} />
             </div>
             <div className={styles.founderInfo}>
+              <span className={styles.founderLabel}>A Message from the Founder</span>
               <h3 className={styles.founderName}>Josh Strohm</h3>
               <p className={styles.founderRole}>Founder, Strohm Partners LLC</p>
-              <p className={styles.founderBio}>
-                After years building software for companies of all sizes, I saw the same pattern: businesses drowning in manual work that should be automatic. Strohm Partners exists to fix that — one system at a time.
-              </p>
+              <div className={styles.founderMessage}>
+                <p>
+                  "As the landscape of modern business operations rapidly evolves, I founded Strohm Partners to help companies navigate the complexities of AI integration. We see a clear, growing need for objective diagnostics, helping businesses cut through the surrounding industry hype to discover where custom AI tools actually fit their specific goals.
+                </p>
+                <p>
+                  Our mission is to serve as your long-term strategic partners. We don't sell pre-packaged, generic templates. Instead, we intend to help you audit your team's operational bottlenecks, map your data flows, and design custom systems that deliver genuine, high-impact operational efficiency.
+                </p>
+                <p>
+                  Whether we are engineering intelligent lead qualification funnels, tuning custom brand voice content pipelines, or automating internal operational tasks, our commitment is simple: we provide honest, builder-first consulting. If an AI system doesn't make absolute operational and financial sense for your business, we will be the first to tell you."
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -294,9 +303,9 @@ export function Home() {
             custom={0}
             className={styles.ctaContent}
           >
-            <h2 className={styles.ctaTitle}>Ready to think about your business as a system?</h2>
+            <h2 className={styles.ctaTitle}>Ready to discover where AI actually fits?</h2>
             <p className={styles.ctaText}>
-              Let's map out how your work actually flows — and where automation could reclaim your time.
+              Let's audit your processes, map your systems architecture, and unlock real operational ROI.
             </p>
             <Button magnetic as="a" href="/contact">
               Start a conversation

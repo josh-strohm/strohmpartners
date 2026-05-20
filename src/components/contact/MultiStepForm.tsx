@@ -68,6 +68,7 @@ export function MultiStepForm() {
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const reducedMotion = useReducedMotion();
 
   useEffect(() => {
@@ -139,13 +140,29 @@ export function MultiStepForm() {
     if (Object.keys(stepErrors).length > 0) return;
 
     setIsSubmitting(true);
+    setSubmitError(null);
 
-    // Simulate submission (no actual data sent)
-    await new Promise(resolve => setTimeout(resolve, reducedMotion ? 0 : 1500));
+    try {
+      const response = await fetch('https://n8n.srv945929.hstgr.cloud/webhook/96daf806-3a1c-4dc3-a43a-c655bef78f13', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    sessionStorage.removeItem(STORAGE_KEY);
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
+
+      setIsSuccess(true);
+      sessionStorage.removeItem(STORAGE_KEY);
+    } catch (err) {
+      console.error('Submission error:', err);
+      setSubmitError('Failed to send message. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const direction = currentStep > 1 ? 1 : -1;
@@ -378,6 +395,12 @@ export function MultiStepForm() {
           )}
         </AnimatePresence>
       </div>
+
+      {submitError && (
+        <div style={{ color: 'var(--color-error)', fontSize: '0.875rem', textAlign: 'right', margin: '0 0 var(--space-2)' }}>
+          {submitError}
+        </div>
+      )}
 
       {/* Navigation */}
       <div className={styles.navigation}>

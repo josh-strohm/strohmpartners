@@ -22,7 +22,7 @@ export function Footer() {
               <h4 className={styles.navTitle}>Site</h4>
               <ul className={styles.navList}>
                 <li><Link to="/">Home</Link></li>
-                <li><Link to="/what-we-build">Services</Link></li>
+                <li><Link to="/services">Services</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
               </ul>
             </div>

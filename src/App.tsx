@@ -1,9 +1,11 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { PageWrapper } from '@/components/layout/PageWrapper';
 import { Home } from '@/pages/Home';
-import { WhatWeBuild } from '@/pages/WhatWeBuild';
+import { Services } from '@/pages/Services';
+import { ServiceDetail } from '@/pages/ServiceDetail';
+import { BookCall } from '@/pages/BookCall';
 import { Contact } from '@/pages/Contact';
 import { Terms } from '@/pages/Terms';
 import { Privacy } from '@/pages/Privacy';
@@ -18,7 +20,10 @@ function AppContent() {
       <PageWrapper key={location.pathname}>
         <Routes location={location}>
           <Route path="/" element={<Home />} />
-          <Route path="/what-we-build" element={<WhatWeBuild />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/services/:serviceSlug" element={<ServiceDetail />} />
+          <Route path="/what-we-build" element={<Navigate to="/services" replace />} />
+          <Route path="/book" element={<BookCall />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />

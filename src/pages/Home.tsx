@@ -82,10 +82,10 @@ export function Home() {
               AI consulting and systems engineering. We audit your workflows, identify high-impact AI opportunities, and build the custom integrations that deliver real operational ROI.
             </p>
             <div className={styles.heroCta}>
-              <Button magnetic as="a" href="/contact">
+              <Button magnetic as="a" href="/book">
                 Start a conversation
               </Button>
-              <Button variant="ghost" as="a" href="/what-we-build">
+              <Button variant="ghost" as="a" href="/services">
                 See what we build
               </Button>
             </div>
@@ -307,7 +307,7 @@ export function Home() {
             <p className={styles.ctaText}>
               Let's audit your processes, map your systems architecture, and unlock real operational ROI.
             </p>
-            <Button magnetic as="a" href="/contact">
+            <Button magnetic as="a" href="/book">
               Start a conversation
             </Button>
           </motion.div>

@@ -35,7 +35,7 @@
 }
 
 .logo img {
-  height: 96px;
+  height: 112px;
   width: auto;
   max-width: min(480px, 70vw);
   object-fit: contain;

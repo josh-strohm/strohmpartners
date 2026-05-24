@@ -140,7 +140,7 @@
 }
 
 .consoleLogApp {
-  color: #0f766e;
+  color: var(--color-accent);
   font-weight: bold;
   margin-right: var(--space-2);
 }
@@ -210,7 +210,7 @@
 .triggerButton {
   flex: 1;
   padding: var(--space-3) var(--space-6);
-  background: var(--color-accent);
+  background: var(--color-btn-accent);
   color: white;
   border: none;
   border-radius: var(--radius-md);
@@ -222,7 +222,7 @@
 }
 
 .triggerButton:hover {
-  background: var(--color-accent-hover);
+  background: var(--color-btn-accent-hover);
 }
 
 .triggerButton.disabled {

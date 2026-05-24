@@ -34,7 +34,7 @@ export function Header() {
     <header className={cn(styles.header, scrolled && styles.scrolled)}>
       <div className={cn('container', styles.container)}>
         <Link to="/" className={styles.logo}>
-          <img src="/StrohmPartnersLLC_Logo_Nobg.png" alt="Strohm Partners" />
+          <img src="/Strohm_Partners_LLC_Logo_nobg.png" alt="Strohm Partners" />
         </Link>
 
         <nav className={styles.nav} aria-label="Main navigation">

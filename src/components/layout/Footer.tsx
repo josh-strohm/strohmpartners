@@ -10,7 +10,7 @@ export function Footer() {
         <div className={styles.content}>
           <div className={styles.brand}>
             <Link to="/" className={styles.logo}>
-              <img src="/StrohmPartnersLLC_Logo_Nobg.png" alt="Strohm Partners" width="260" />
+              <img src="/Strohm_Partners_LLC_Logo_nobg.png" alt="Strohm Partners" width="260" />
             </Link>
             <p className={styles.tagline}>
               AI consulting and systems engineering. Helping businesses identify where AI fits and building the custom integrations to make it work.

@@ -4,7 +4,8 @@
       "Bash(Get-ChildItem -Path \"c:\\\\code\\\\strohmpartners.com\")",
       "Bash(npm create *)",
       "Bash(npm install *)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(node -e ' *)"
     ]
   }
 }

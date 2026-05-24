@@ -27,12 +27,12 @@
 
 /* Variants */
 .primary {
-  background: var(--color-accent);
+  background: var(--color-btn-accent);
   color: white;
 }
 
 .primary:hover:not(.disabled) {
-  background: var(--color-accent-hover);
+  background: var(--color-btn-accent-hover);
   box-shadow: var(--shadow-md);
 }
 

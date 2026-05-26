@@ -5,7 +5,10 @@
       "Bash(npm create *)",
       "Bash(npm install *)",
       "Bash(npm run *)",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "PowerShell(Add-Type -AssemblyName System.Drawing; $img = [System.Drawing.Image]::FromFile\\(\"C:\\\\Users\\\\josh.strohm\\\\code\\\\strohmpartners\\\\public\\\\josh-strohm.png\"\\); $bmp = [System.Drawing.Bitmap]::new\\($img\\); $bmp.GetPixel\\(5, 5\\))",
+      "PowerShell(Add-Type -AssemblyName System.Drawing; $img = [System.Drawing.Image]::FromFile\\(\"C:\\\\Users\\\\josh.strohm\\\\code\\\\strohmpartners\\\\public\\\\josh-strohm.png\"\\); $bmp = [System.Drawing.Bitmap]::new\\($img\\); \"Corner 0,0: $\\($bmp.GetPixel\\(0, 0\\)\\)\"; \"Top-mid 300, 5: $\\($bmp.GetPixel\\(300, 5\\)\\)\"; \"Left-mid 5, 300: $\\($bmp.GetPixel\\(5, 300\\)\\)\")",
+      "PowerShell(Add-Type -AssemblyName System.Drawing; $img = [System.Drawing.Image]::FromFile\\(\"C:\\\\Users\\\\josh.strohm\\\\code\\\\strohmpartners\\\\public\\\\josh-strohm.png\"\\); \"$\\($img.Width\\)x$\\($img.Height\\)\")"
     ]
   }
 }

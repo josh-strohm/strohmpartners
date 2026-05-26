@@ -270,7 +270,7 @@ export function Home() {
             className={styles.founderContent}
           >
             <div className={styles.founderImage}>
-              <img src="/josh-strohm.png" alt="Josh Strohm" width="80" height="80" className={styles.founderImg} />
+              <img src="/josh-strohm.png" alt="Josh Strohm" className={styles.founderImg} />
             </div>
             <div className={styles.founderInfo}>
               <span className={styles.founderLabel}>A Message from the Founder</span>

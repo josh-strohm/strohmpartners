@@ -278,13 +278,22 @@ export function Home() {
               <p className={styles.founderRole}>Founder, Strohm Partners LLC</p>
               <div className={styles.founderMessage}>
                 <p>
-                  "As the landscape of modern business operations rapidly evolves, I founded Strohm Partners to help companies navigate the complexities of AI integration. We see a clear, growing need for objective diagnostics, helping businesses cut through the surrounding industry hype to discover where custom AI tools actually fit their specific goals.
+                  Strohm Partners exists because I got tired of seeing the same story play out over and over. A business owner gets talked into some shiny new tool, signs up, pays for it, and a few months later nothing has actually changed except their credit card statement.
                 </p>
                 <p>
-                  Our mission is to serve as your long-term strategic partners. We don't sell pre-packaged, generic templates. Instead, we intend to help you audit your team's operational bottlenecks, map your data flows, and design custom systems that deliver genuine, high-impact operational efficiency.
+                  I'm not interested in being one more person trying to sell you something you don't need.
                 </p>
                 <p>
-                  Whether we are engineering intelligent lead qualification funnels, tuning custom brand voice content pipelines, or automating internal operational tasks, our commitment is simple: we provide honest, builder-first consulting. If an AI system doesn't make absolute operational and financial sense for your business, we will be the first to tell you."
+                  When someone hires me, the first thing I do is just learn how their business works. What takes up the most time. Where things keep falling through. What the team complains about on Mondays. You can't fix any of that from a sales call, and you definitely can't fix it with a template someone made for a different company in a different industry.
+                </p>
+                <p>
+                  Once I actually understand what's going on, then we figure out together what's worth building and what isn't. Sometimes the answer is a custom tool. Sometimes the answer is way simpler than that. Sometimes the answer is don't do anything yet. I'd rather tell you the honest version than the version that gets me a bigger invoice.
+                </p>
+                <p>
+                  And anything we end up building, you keep. It's yours.
+                </p>
+                <p>
+                  If any of this sounds like what you've been needing, shoot me a message.
                 </p>
               </div>
             </div>

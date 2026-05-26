@@ -304,6 +304,17 @@
   margin-bottom: 0;
 }
 
+.founderMessage a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 500;
+}
+
+.founderMessage a:hover {
+  opacity: 0.8;
+}
+
 @media (max-width: 640px) {
   .founderContent {
     flex-direction: column;

@@ -293,7 +293,7 @@ export function Home() {
                   And anything we end up building, you keep. It's yours.
                 </p>
                 <p>
-                  If any of this sounds like what you've been needing, shoot me a message.
+                  If any of this sounds like what you've been looking for, please <a href="/contact">send a message</a> or <a href="/book">schedule a call</a>.
                 </p>
               </div>
             </div>

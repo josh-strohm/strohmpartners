@@ -7,6 +7,8 @@ import { LeadCaptureDemo } from '@/components/whatwebuild/LeadCaptureDemo';
 import { ContentVoiceDemo } from '@/components/whatwebuild/ContentVoiceDemo';
 import { WorkflowAutomationDemo } from '@/components/whatwebuild/WorkflowAutomationDemo';
 import { AeoGeoDemo } from '@/components/whatwebuild/AeoGeoDemo';
+import { AiChatbotDemo } from '@/components/whatwebuild/AiChatbotDemo';
+import { AiVoiceAgentDemo } from '@/components/whatwebuild/AiVoiceAgentDemo';
 import styles from './ServiceDetail.module.css';
 
 const fadeUpVariants = {
@@ -49,6 +51,10 @@ export function ServiceDetail() {
         return <WorkflowAutomationDemo />;
       case 'aeo-geo-playbook':
         return <AeoGeoDemo />;
+      case 'ai-chatbots':
+        return <AiChatbotDemo />;
+      case 'ai-voice-agents':
+        return <AiVoiceAgentDemo />;
       default:
         return null;
     }

@@ -43,6 +43,21 @@ const serviceIcons: Record<string, React.ReactNode> = {
       <path d="M2 12l10 5 10-5" />
     </svg>
   ),
+  'ai-chatbots': (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+      <line x1="9" y1="10" x2="9" y2="10" />
+      <line x1="15" y1="10" x2="15" y2="10" />
+    </svg>
+  ),
+  'ai-voice-agents': (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+      <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+      <line x1="12" y1="19" x2="12" y2="23" />
+      <line x1="8" y1="23" x2="16" y2="23" />
+    </svg>
+  ),
 };
 
 export function Services() {
@@ -54,7 +69,7 @@ export function Services() {
     document.title = 'Services & AI Consulting | Strohm Partners';
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute('content', 'Helping you identify where AI fits and building the custom integrations to make it work. Browse our four core service pillars.');
+      metaDesc.setAttribute('content', 'Helping you identify where AI fits and building the custom integrations to make it work. Browse our core service offerings.');
     }
 
     const el = headerRef.current;

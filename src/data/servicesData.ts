@@ -237,5 +237,113 @@ export const servicesData: ServiceOffering[] = [
     ],
     seoTitle: 'AI Search Optimization (AEO/GEO) | Strohm Partners LLC',
     seoDescription: 'Rank your business in ChatGPT, Gemini, and Perplexity answers. We deploy semantic graph schemas and retrieval-optimized AEO frameworks.'
+  },
+  {
+    id: 'ai-chatbots',
+    slug: 'ai-chatbots',
+    title: 'AI Chatbots & Conversational Assistants',
+    tagline: 'Deploy intelligent chatbots that qualify leads and support customers around the clock.',
+    shortDescription: 'We design and build custom AI chatbots that engage visitors, answer questions, qualify prospects, and route conversations to your team—all without human intervention.',
+    description: 'Most live chat tools are either too dumb to help or too expensive to staff. We build custom AI chatbots trained on your brand voice, knowledge base, and business rules—so every visitor gets instant, intelligent conversations that drive revenue and reduce support load.',
+    symptoms: [
+      'Your website visitors leave without engaging because there is no one available to answer questions in real time',
+      'Your support team is overwhelmed with repetitive, low-value inquiries that could be handled automatically',
+      'Leads go cold after hours because no one is available to respond outside of business hours',
+      'Your current chatbot feels robotic, gives wrong answers, or frustrates users instead of helping them',
+    ],
+    deliverables: [
+      'A custom AI chatbot trained on your specific business knowledge, FAQs, and brand voice',
+      'Intelligent conversation flows that qualify leads and route high-value prospects to your sales team',
+      'Seamless integration with your CRM, helpdesk, and messaging platforms',
+      'Analytics dashboard tracking conversations, lead quality, and resolution rates',
+    ],
+    idealClient: 'You want to provide instant, intelligent customer engagement 24/7 without scaling your support headcount or sacrificing conversation quality.',
+    howItWorks: [
+      {
+        step: '01',
+        title: 'Map Conversations',
+        description: 'We audit your most common customer inquiries, sales conversations, and support tickets to design intelligent dialogue flows.'
+      },
+      {
+        step: '02',
+        title: 'Train & Build',
+        description: 'We train your chatbot on your knowledge base, brand voice, and business rules, then build custom conversation interfaces.'
+      },
+      {
+        step: '03',
+        title: 'Deploy & Optimize',
+        description: 'We launch your chatbot across your website and channels, then continuously refine responses based on real conversation data.'
+      }
+    ],
+    whatToExpect: [
+      {
+        title: '24/7 Intelligent Engagement',
+        description: 'Every visitor receives instant, helpful responses regardless of time zone or business hours, capturing leads that would otherwise be lost.'
+      },
+      {
+        title: 'Qualified Lead Pipeline',
+        description: 'Your chatbot automatically screens, scores, and routes the highest-value prospects directly to your sales team with full conversation context.'
+      },
+      {
+        title: 'Reduced Support Burden',
+        description: 'Deflect up to 70% of repetitive support tickets while your human agents focus on complex, high-value customer interactions.'
+      }
+    ],
+    seoTitle: 'AI Chatbots & Conversational Assistants | Strohm Partners LLC',
+    seoDescription: 'Deploy custom AI chatbots that qualify leads, answer questions, and support customers 24/7. We build intelligent conversational assistants trained on your brand.'
+  },
+  {
+    id: 'ai-voice-agents',
+    slug: 'ai-voice-agents',
+    title: 'AI Voice Agents & Phone Automation',
+    tagline: 'Never miss a call again with AI voice agents that sound like your best employee.',
+    shortDescription: 'We build custom AI voice agents that answer calls, book appointments, qualify callers, and handle routine phone conversations with natural, human-like speech.',
+    description: 'Missed calls are missed revenue. We build AI voice agents that answer every call instantly, handle scheduling and qualification conversations, and escalate complex issues to your team—all with natural speech that callers trust and engage with.',
+    symptoms: [
+      'You are missing inbound calls because your front desk or sales team cannot handle the volume',
+      'After-hours callers reach voicemail and never call back, taking their business to competitors',
+      'Your staff spends excessive time on routine scheduling and qualification calls instead of high-value work',
+      'Your current phone system lacks intelligence—callers get stuck in menus or on hold with no resolution',
+    ],
+    deliverables: [
+      'A custom AI voice agent trained on your business scripts, FAQs, and appointment scheduling rules',
+      'Natural speech synthesis and recognition configured to match your brand tone and caller expectations',
+      'Direct integration with your calendar, CRM, and phone systems for real-time booking and data capture',
+      'Call analytics and transcription dashboard showing call outcomes, lead quality, and resolution metrics',
+    ],
+    idealClient: 'You want to capture every inbound call as a revenue opportunity and automate routine phone conversations without hiring additional receptionists or sales development reps.',
+    howItWorks: [
+      {
+        step: '01',
+        title: 'Script the Calls',
+        description: 'We study your most common call types and map out conversation trees for scheduling, qualification, and support scenarios.'
+      },
+      {
+        step: '02',
+        title: 'Build the Voice',
+        description: 'We configure natural speech synthesis and recognition, training the agent on your scripts, tone, and business-specific vocabulary.'
+      },
+      {
+        step: '03',
+        title: 'Connect & Launch',
+        description: 'We integrate the voice agent with your phone system, calendar, and CRM, then launch with live monitoring and continuous optimization.'
+      }
+    ],
+    whatToExpect: [
+      {
+        title: 'Every Call Answered',
+        description: 'Capture 100% of inbound calls with zero hold time, converting missed calls and after-hours inquiries into booked appointments and qualified leads.'
+      },
+      {
+        title: 'Natural Caller Experience',
+        description: 'Your AI voice agent handles conversations with human-like speech and contextual understanding, building caller trust and engagement.'
+      },
+      {
+        title: 'Scalable Phone Operations',
+        description: 'Handle unlimited simultaneous calls without adding headcount, scaling your phone capacity instantly during peak demand or growth periods.'
+      }
+    ],
+    seoTitle: 'AI Voice Agents & Phone Automation | Strohm Partners LLC',
+    seoDescription: 'Build custom AI voice agents that answer calls, book appointments, and qualify leads 24/7. Natural speech automation for inbound phone operations.'
   }
 ];

@@ -121,14 +121,12 @@ export function Home() {
             >
               <div className={styles.pillarIcon}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="2" y="3" width="20" height="14" rx="2" />
-                  <line x1="8" y1="21" x2="16" y2="21" />
-                  <line x1="12" y1="17" x2="12" y2="21" />
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                 </svg>
               </div>
-              <h3 className={styles.pillarTitle}>Web &amp; AI Acquisition Funnels</h3>
+              <h3 className={styles.pillarTitle}>AI-Powered Customer Engagement</h3>
               <p className={styles.pillarDescription}>
-                We audit how you capture and interact with customers online. We map exactly where AI can naturally qualify prospects and route lead data, then build custom sites to support it.
+                From intelligent websites and lead funnels to AI chatbots and voice agents that answer calls 24/7. We build the systems that greet, qualify, and route every visitor and caller so your team only touches high-value conversations.
               </p>
             </motion.div>
 
@@ -142,14 +140,14 @@ export function Home() {
             >
               <div className={styles.pillarIcon}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M4 11a9 9 0 0 1 9 9" />
-                  <path d="M4 4a16 16 0 0 1 16 16" />
-                  <circle cx="5" cy="19" r="1" />
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="2" y1="12" x2="22" y2="12" />
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                 </svg>
               </div>
-              <h3 className={styles.pillarTitle}>Content Voice &amp; Scaling Systems</h3>
+              <h3 className={styles.pillarTitle}>Content &amp; AI Search Visibility</h3>
               <p className={styles.pillarDescription}>
-                We design a systematic approach to brand content. We identify where AI models can accelerate research and formatting while keeping your brand voice fully authentic and editor-approved.
+                We build content production systems that scale your brand voice without losing authenticity, and optimize your digital presence so AI search engines like ChatGPT, Gemini, and Perplexity recommend your business first.
               </p>
             </motion.div>
 
@@ -163,13 +161,13 @@ export function Home() {
             >
               <div className={styles.pillarIcon}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="16 18 22 12 16 6" />
-                  <polyline points="8 6 2 12 8 18" />
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
                 </svg>
               </div>
-              <h3 className={styles.pillarTitle}>AI Operational Audits &amp; Integrations</h3>
+              <h3 className={styles.pillarTitle}>Workflow Automation &amp; Integration</h3>
               <p className={styles.pillarDescription}>
-                Our core advisory offering. We conduct deep workflow audits to isolate high-friction internal bottlenecks, mapping exactly where custom AI database integrations can reclaim lost hours.
+                Our core advisory offering. We conduct deep operational audits to find where your team loses hours to manual work, then build secure custom integrations that connect your tools and automate the repetitive tasks holding you back.
               </p>
             </motion.div>
           </div>

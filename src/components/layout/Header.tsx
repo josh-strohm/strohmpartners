@@ -26,9 +26,10 @@ export function Header() {
   const navLinks = [
     { to: '/', label: 'Home' },
     { to: '/services', label: 'Services' },
+     { to: '/blog', label: 'Blog' },
     { to: '/book', label: 'Scheduling' },
     { to: '/contact', label: 'Contact' },
-  ];
+    ];
 
   return (
     <header className={cn(styles.header, scrolled && styles.scrolled)}>

@@ -1,162 +1,147 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { cn } from '@/utils/cn';
 import styles from './MultiStepForm.module.css';
 
 interface FormData {
-  serviceType: string;
-  projectDescription: string;
-  budgetRange: string;
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
-  company: string;
   phone: string;
+  businessName: string;
+  website: string;
 }
 
-interface Errors {
-  serviceType?: string;
-  projectDescription?: string;
-  budgetRange?: string;
-  name?: string;
-  email?: string;
-  company?: string;
-}
+type ErrorField = keyof FormData;
+type Errors = Partial<Record<ErrorField, string>>;
 
-const serviceTypes = [
-  { value: 'websites', label: 'Web & AI Acquisition Funnels' },
-  { value: 'content', label: 'Content Voice & Scaling Systems' },
-  { value: 'process', label: 'AI Operational Audits & Integrations' },
-  { value: 'multiple', label: 'Comprehensive AI Strategy Consulting' },
-];
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const urlRegex = /^(https?:\/\/)?([\w-]+\.)+[\w-]{2,}(\/[\w\-./?%&=]*)?$/i;
 
-const budgetRanges = [
-  { value: 'under-1k', label: 'Less than $1,000' },
-  { value: '1k-5k', label: '$1,000 – $5,000' },
-  { value: '5k-10k', label: '$5,000 – $10,000' },
-  { value: 'over-10k', label: '$10,000+' },
-];
-
-const steps = [
-  { id: 1, title: 'Your goals', description: 'What are your operational goals?' },
-  { id: 2, title: 'Your budget', description: 'Help us understand the scope.' },
-  { id: 3, title: 'Your details', description: 'How do we reach you?' },
-];
-
-const STORAGE_KEY = 'strohm-contact-form';
+const initialFormData: FormData = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  businessName: '',
+  website: '',
+};
 
 export function MultiStepForm() {
-  const [currentStep, setCurrentStep] = useState(1);
-  const [formData, setFormData] = useState<FormData>(() => {
-    try {
-      const stored = sessionStorage.getItem(STORAGE_KEY);
-      if (stored) return JSON.parse(stored);
-    } catch {
-      // ignore
-    }
-    return {
-      serviceType: '',
-      projectDescription: '',
-      budgetRange: '',
-      name: '',
-      email: '',
-      company: '',
-      phone: '',
-    };
-  });
+  const [formData, setFormData] = useState<FormData>(initialFormData);
   const [errors, setErrors] = useState<Errors>({});
-  const [touched, setTouched] = useState<Record<string, boolean>>({});
+  const [touched, setTouched] = useState<Record<ErrorField, boolean>>({
+    firstName: false,
+    lastName: false,
+    email: false,
+    phone: false,
+    businessName: false,
+    website: false,
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const reducedMotion = useReducedMotion();
 
-  useEffect(() => {
-    try {
-      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
-    } catch {
-      // ignore
+  const validateField = (field: ErrorField, data: FormData): string | undefined => {
+    switch (field) {
+      case 'firstName':
+        if (!data.firstName.trim()) return 'First name is required';
+        return undefined;
+      case 'lastName':
+        if (!data.lastName.trim()) return 'Last name is required';
+        return undefined;
+      case 'email':
+        if (!data.email.trim()) return 'Email is required';
+        if (!emailRegex.test(data.email.trim())) return 'Enter a valid email';
+        return undefined;
+      case 'phone':
+        if (!data.phone.trim()) return 'Phone is required';
+        if (data.phone.trim().replace(/\D/g, '').length < 7) return 'Enter a valid phone number';
+        return undefined;
+      case 'businessName':
+        if (!data.businessName.trim()) return 'Business name is required';
+        return undefined;
+      case 'website':
+        if (!data.website.trim()) return 'Website is required';
+        if (!urlRegex.test(data.website.trim())) return 'Enter a valid website (e.g. example.com)';
+        return undefined;
     }
-  }, [formData]);
+  };
 
-  const validate = (step: number, data: FormData): Errors => {
+  const validateAll = (data: FormData): Errors => {
     const errs: Errors = {};
-
-    if (step === 1) {
-      if (!data.serviceType) errs.serviceType = 'Please select a service type';
-      if (!data.projectDescription.trim()) errs.projectDescription = 'Please describe your operational needs';
-      else if (data.projectDescription.trim().length < 20) errs.projectDescription = 'Please provide more detail (at least 20 characters)';
-    }
-
-    if (step === 2) {
-      if (!data.budgetRange) errs.budgetRange = 'Please select a budget range';
-    }
-
-    if (step === 3) {
-      if (!data.name.trim()) errs.name = 'Name is required';
-      if (!data.email.trim()) errs.email = 'Email is required';
-      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errs.email = 'Enter a valid email';
-      if (!data.company.trim()) errs.company = 'Company is required';
-    }
-
+    (Object.keys(data) as ErrorField[]).forEach(field => {
+      const err = validateField(field, data);
+      if (err) errs[field] = err;
+    });
     return errs;
   };
 
-  const handleBlur = (field: string) => {
+  const handleBlur = (field: ErrorField) => {
     setTouched(prev => ({ ...prev, [field]: true }));
-    const stepErrors = validate(currentStep, formData);
-    setErrors(prev => ({ ...prev, [field]: stepErrors[field as keyof Errors] }));
+    setErrors(prev => ({ ...prev, [field]: validateField(field, formData) }));
   };
 
-  const next = () => {
-    const stepErrors = validate(currentStep, formData);
-    setErrors(stepErrors);
-
-    const fieldsToMark = currentStep === 1
-      ? ['serviceType', 'projectDescription']
-      : currentStep === 2
-      ? ['budgetRange']
-      : ['name', 'email', 'company'];
-
-    setTouched(fieldsToMark.reduce((acc, f) => ({ ...acc, [f]: true }), {}));
-
-    if (Object.keys(stepErrors).length === 0) {
-      setCurrentStep(prev => prev + 1);
+  const handleChange = (field: ErrorField, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+    // Clear error live as soon as the user fixes it
+    if (touched[field] && errors[field]) {
+      setErrors(prev => {
+        const next = { ...prev };
+        const nextData = { ...formData, [field]: value };
+        const err = validateField(field, nextData);
+        if (err) next[field] = err;
+        else delete next[field];
+        return next;
+      });
     }
   };
 
-  const back = () => {
-    setCurrentStep(prev => prev - 1);
-    setErrors({});
-  };
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-  const submit = async () => {
-    const stepErrors = validate(3, formData);
-    setErrors(stepErrors);
+    const allErrors = validateAll(formData);
+    setErrors(allErrors);
+    setTouched({
+      firstName: true,
+      lastName: true,
+      email: true,
+      phone: true,
+      businessName: true,
+      website: true,
+    });
 
-    const fieldsToMark = ['name', 'email', 'company'];
-    setTouched(fieldsToMark.reduce((acc, f) => ({ ...acc, [f]: true }), {}));
-
-    if (Object.keys(stepErrors).length > 0) return;
+    if (Object.keys(allErrors).length > 0) return;
 
     setIsSubmitting(true);
     setSubmitError(null);
 
     try {
-      const response = await fetch('https://n8n.srv945929.hstgr.cloud/webhook/96daf806-3a1c-4dc3-a43a-c655bef78f13', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        'https://n8n.srv945929.hstgr.cloud/webhook/96daf806-3a1c-4dc3-a43a-c655bef78f13',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (!response.ok) {
         throw new Error('Failed to submit form');
       }
 
       setIsSuccess(true);
-      sessionStorage.removeItem(STORAGE_KEY);
+      setFormData(initialFormData);
+      setTouched({
+        firstName: false,
+        lastName: false,
+        email: false,
+        phone: false,
+        businessName: false,
+        website: false,
+      });
     } catch (err) {
       console.error('Submission error:', err);
       setSubmitError('Failed to send message. Please check your connection and try again.');
@@ -164,8 +149,6 @@ export function MultiStepForm() {
       setIsSubmitting(false);
     }
   };
-
-  const direction = currentStep > 1 ? 1 : -1;
 
   if (isSuccess) {
     return (
@@ -187,243 +170,147 @@ export function MultiStepForm() {
         </motion.div>
         <h3 className={styles.successTitle}>Message sent.</h3>
         <p className={styles.successText}>
-          Thanks, {formData.name}. We'll review what you've shared and be in touch within 1–2 business days.
+          Thanks, {formData.firstName || 'there'}. We'll review what you've shared and be in touch within 1–2 business days.
         </p>
       </motion.div>
     );
   }
 
   return (
-    <div className={styles.container}>
-      {/* Progress */}
-      <div className={styles.progress}>
-        {steps.map((step, i) => (
-          <div
-            key={step.id}
-            className={cn(
-              styles.progressStep,
-              currentStep > step.id && styles.complete,
-              currentStep === step.id && styles.active
-            )}
-          >
-            <div className={styles.progressDot}>
-              {currentStep > step.id ? (
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
-              ) : (
-                <span>{step.id}</span>
-              )}
-            </div>
-            <span className={styles.progressLabel}>{step.title}</span>
-            {i < steps.length - 1 && <div className={styles.progressLine} />}
-          </div>
-        ))}
+    <form className={styles.container} onSubmit={submit} noValidate>
+      <div className={styles.formHeader}>
+        <h3 className={styles.formTitle}>Get in touch</h3>
+        <p className={styles.formDescription}>
+          Share a few details and we'll get back to you within 1–2 business days.
+        </p>
       </div>
 
-      {/* Form Steps */}
-      <div className={styles.formArea}>
-        <AnimatePresence mode="wait" initial={false}>
-          {currentStep === 1 && (
-            <motion.div
-              key="step1"
-              initial={{ opacity: 0, x: reducedMotion ? 0 : 50 * direction }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: reducedMotion ? 0 : -50 * direction }}
-              transition={{ duration: reducedMotion ? 0 : 0.25 }}
-              className={styles.stepContent}
-            >
-              <div className={styles.stepHeader}>
-                <h3 className={styles.stepTitle}>{steps[0].title}</h3>
-                <p className={styles.stepDescription}>{steps[0].description}</p>
-              </div>
+      <div className={styles.fields}>
+        <div className={styles.row}>
+          <div className={styles.field}>
+            <label htmlFor="firstName" className={styles.label}>First name</label>
+            <input
+              id="firstName"
+              name="firstName"
+              type="text"
+              autoComplete="given-name"
+              value={formData.firstName}
+              onChange={e => handleChange('firstName', e.target.value)}
+              onBlur={() => handleBlur('firstName')}
+              placeholder="Jane"
+              className={cn(styles.input, touched.firstName && errors.firstName && styles.inputError)}
+            />
+            {touched.firstName && errors.firstName && (
+              <span className={styles.error}>{errors.firstName}</span>
+            )}
+          </div>
 
-              <div className={styles.field}>
-                <label htmlFor="serviceType" className={styles.label}>What do you need help with?</label>
-                <select
-                  id="serviceType"
-                  value={formData.serviceType}
-                  onChange={e => setFormData(p => ({ ...p, serviceType: e.target.value }))}
-                  onBlur={() => handleBlur('serviceType')}
-                  className={cn(styles.select, touched.serviceType && errors.serviceType && styles.inputError)}
-                >
-                  <option value="">Select a service...</option>
-                  {serviceTypes.map(s => (
-                    <option key={s.value} value={s.value}>{s.label}</option>
-                  ))}
-                </select>
-                {touched.serviceType && errors.serviceType && (
-                  <span className={styles.error}>{errors.serviceType}</span>
-                )}
-              </div>
+          <div className={styles.field}>
+            <label htmlFor="lastName" className={styles.label}>Last name</label>
+            <input
+              id="lastName"
+              name="lastName"
+              type="text"
+              autoComplete="family-name"
+              value={formData.lastName}
+              onChange={e => handleChange('lastName', e.target.value)}
+              onBlur={() => handleBlur('lastName')}
+              placeholder="Doe"
+              className={cn(styles.input, touched.lastName && errors.lastName && styles.inputError)}
+            />
+            {touched.lastName && errors.lastName && (
+              <span className={styles.error}>{errors.lastName}</span>
+            )}
+          </div>
+        </div>
 
-              <div className={styles.field}>
-                <label htmlFor="projectDescription" className={styles.label}>Describe your business and operational needs</label>
-                <textarea
-                  id="projectDescription"
-                  value={formData.projectDescription}
-                  onChange={e => setFormData(p => ({ ...p, projectDescription: e.target.value }))}
-                  onBlur={() => handleBlur('projectDescription')}
-                  placeholder="What bottlenecks are your team facing? Where do you suspect AI could help streamline your operations?"
-                  rows={4}
-                  className={cn(styles.textarea, touched.projectDescription && errors.projectDescription && styles.inputError)}
-                />
-                {touched.projectDescription && errors.projectDescription && (
-                  <span className={styles.error}>{errors.projectDescription}</span>
-                )}
-              </div>
-            </motion.div>
+        <div className={styles.field}>
+          <label htmlFor="email" className={styles.label}>Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            value={formData.email}
+            onChange={e => handleChange('email', e.target.value)}
+            onBlur={() => handleBlur('email')}
+            placeholder="you@company.com"
+            className={cn(styles.input, touched.email && errors.email && styles.inputError)}
+          />
+          {touched.email && errors.email && (
+            <span className={styles.error}>{errors.email}</span>
           )}
+        </div>
 
-          {currentStep === 2 && (
-            <motion.div
-              key="step2"
-              initial={{ opacity: 0, x: reducedMotion ? 0 : 50 * direction }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: reducedMotion ? 0 : -50 * direction }}
-              transition={{ duration: reducedMotion ? 0 : 0.25 }}
-              className={styles.stepContent}
-            >
-              <div className={styles.stepHeader}>
-                <h3 className={styles.stepTitle}>{steps[1].title}</h3>
-                <p className={styles.stepDescription}>{steps[1].description}</p>
-              </div>
-
-              <div className={styles.field}>
-                <label className={styles.label}>What's your approximate budget?</label>
-                <div className={styles.radioGroup}>
-                  {budgetRanges.map(range => (
-                    <label
-                      key={range.value}
-                      className={cn(styles.radioLabel, formData.budgetRange === range.value && styles.selected)}
-                    >
-                      <input
-                        type="radio"
-                        name="budgetRange"
-                        value={range.value}
-                        checked={formData.budgetRange === range.value}
-                        onChange={e => setFormData(p => ({ ...p, budgetRange: e.target.value }))}
-                        className={styles.radioInput}
-                      />
-                      <span className={styles.radioText}>{range.label}</span>
-                    </label>
-                  ))}
-                </div>
-                {touched.budgetRange && errors.budgetRange && (
-                  <span className={styles.error}>{errors.budgetRange}</span>
-                )}
-              </div>
-            </motion.div>
+        <div className={styles.field}>
+          <label htmlFor="phone" className={styles.label}>Phone</label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+            value={formData.phone}
+            onChange={e => handleChange('phone', e.target.value)}
+            onBlur={() => handleBlur('phone')}
+            placeholder="+1 (555) 000-0000"
+            className={cn(styles.input, touched.phone && errors.phone && styles.inputError)}
+          />
+          {touched.phone && errors.phone && (
+            <span className={styles.error}>{errors.phone}</span>
           )}
+        </div>
 
-          {currentStep === 3 && (
-            <motion.div
-              key="step3"
-              initial={{ opacity: 0, x: reducedMotion ? 0 : 50 * direction }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: reducedMotion ? 0 : -50 * direction }}
-              transition={{ duration: reducedMotion ? 0 : 0.25 }}
-              className={styles.stepContent}
-            >
-              <div className={styles.stepHeader}>
-                <h3 className={styles.stepTitle}>{steps[2].title}</h3>
-                <p className={styles.stepDescription}>{steps[2].description}</p>
-              </div>
-
-              <div className={styles.field}>
-                <label htmlFor="name" className={styles.label}>Name</label>
-                <input
-                  id="name"
-                  type="text"
-                  value={formData.name}
-                  onChange={e => setFormData(p => ({ ...p, name: e.target.value }))}
-                  onBlur={() => handleBlur('name')}
-                  placeholder="Your name"
-                  className={cn(styles.input, touched.name && errors.name && styles.inputError)}
-                />
-                {touched.name && errors.name && (
-                  <span className={styles.error}>{errors.name}</span>
-                )}
-              </div>
-
-              <div className={styles.field}>
-                <label htmlFor="email" className={styles.label}>Email</label>
-                <input
-                  id="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={e => setFormData(p => ({ ...p, email: e.target.value }))}
-                  onBlur={() => handleBlur('email')}
-                  placeholder="you@company.com"
-                  className={cn(styles.input, touched.email && errors.email && styles.inputError)}
-                />
-                {touched.email && errors.email && (
-                  <span className={styles.error}>{errors.email}</span>
-                )}
-              </div>
-
-              <div className={styles.field}>
-                <label htmlFor="company" className={styles.label}>Company</label>
-                <input
-                  id="company"
-                  type="text"
-                  value={formData.company}
-                  onChange={e => setFormData(p => ({ ...p, company: e.target.value }))}
-                  onBlur={() => handleBlur('company')}
-                  placeholder="Your company"
-                  className={cn(styles.input, touched.company && errors.company && styles.inputError)}
-                />
-                {touched.company && errors.company && (
-                  <span className={styles.error}>{errors.company}</span>
-                )}
-              </div>
-
-              <div className={styles.field}>
-                <label htmlFor="phone" className={styles.label}>
-                  Phone <span className={styles.optional}>(optional)</span>
-                </label>
-                <input
-                  id="phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={e => setFormData(p => ({ ...p, phone: e.target.value }))}
-                  placeholder="+1 (555) 000-0000"
-                  className={styles.input}
-                />
-              </div>
-            </motion.div>
+        <div className={styles.field}>
+          <label htmlFor="businessName" className={styles.label}>Business name</label>
+          <input
+            id="businessName"
+            name="businessName"
+            type="text"
+            autoComplete="organization"
+            value={formData.businessName}
+            onChange={e => handleChange('businessName', e.target.value)}
+            onBlur={() => handleBlur('businessName')}
+            placeholder="Acme Inc."
+            className={cn(styles.input, touched.businessName && errors.businessName && styles.inputError)}
+          />
+          {touched.businessName && errors.businessName && (
+            <span className={styles.error}>{errors.businessName}</span>
           )}
-        </AnimatePresence>
+        </div>
+
+        <div className={styles.field}>
+          <label htmlFor="website" className={styles.label}>Website</label>
+          <input
+            id="website"
+            name="website"
+            type="text"
+            autoComplete="url"
+            inputMode="url"
+            value={formData.website}
+            onChange={e => handleChange('website', e.target.value)}
+            onBlur={() => handleBlur('website')}
+            placeholder="https://example.com"
+            className={cn(styles.input, touched.website && errors.website && styles.inputError)}
+          />
+          {touched.website && errors.website && (
+            <span className={styles.error}>{errors.website}</span>
+          )}
+        </div>
       </div>
 
       {submitError && (
-        <div style={{ color: 'var(--color-error)', fontSize: '0.875rem', textAlign: 'right', margin: '0 0 var(--space-2)' }}>
-          {submitError}
-        </div>
+        <div className={styles.submitError}>{submitError}</div>
       )}
 
-      {/* Navigation */}
-      <div className={styles.navigation}>
-        {currentStep > 1 && (
-          <button onClick={back} className={styles.backButton}>
-            Back
-          </button>
-        )}
-        <div className={styles.navSpacer} />
-        {currentStep < 3 ? (
-          <button onClick={next} className={styles.nextButton}>
-            Continue
-          </button>
-        ) : (
-          <button
-            onClick={submit}
-            disabled={isSubmitting}
-            className={cn(styles.submitButton, isSubmitting && styles.submitting)}
-          >
-            {isSubmitting ? 'Sending...' : 'Send message'}
-          </button>
-        )}
+      <div className={styles.actions}>
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className={cn(styles.submitButton, isSubmitting && styles.submitting)}
+        >
+          {isSubmitting ? 'Sending...' : 'Send message'}
+        </button>
       </div>
-    </div>
+    </form>
   );
 }

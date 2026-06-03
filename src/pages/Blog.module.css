@@ -8,22 +8,19 @@
   text-align: center;
   padding: 4rem 0 3rem;
   margin-bottom: 2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .heroTitle {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #0fb0d7, #2dd4bf);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #1a1a1a;
 }
 
 .heroSubtitle {
   font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: #666;
   max-width: 500px;
   margin: 0 auto;
 }
@@ -35,18 +32,18 @@
 }
 
 .postCard {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 12px;
   padding: 2rem;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .postCard:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(45, 212, 191, 0.3);
+  border-color: #6F8FA1;
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .postMeta {
@@ -58,12 +55,12 @@
 }
 
 .postDate {
-  color: #2dd4bf;
+  color: #6F8FA1;
   font-weight: 500;
 }
 
 .postAuthor {
-  color: rgba(255, 255, 255, 0.4);
+  color: #999;
 }
 
 .postTitle {
@@ -71,20 +68,21 @@
   font-weight: 600;
   line-height: 1.3;
   margin-bottom: 0.75rem;
+  color: #1a1a1a;
 }
 
 .postTitle a {
-  color: #fff;
+  color: #1a1a1a;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .postTitle a:hover {
-  color: #2dd4bf;
+  color: #6F8FA1;
 }
 
 .postExcerpt {
-  color: rgba(255, 255, 255, 0.6);
+  color: #666;
   line-height: 1.6;
   margin-bottom: 1.25rem;
 }
@@ -105,22 +103,23 @@
 
 .tag {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.05);
+  color: #6F8FA1;
+  background: rgba(111, 143, 161, 0.1);
   padding: 0.25rem 0.75rem;
   border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(111, 143, 161, 0.2);
 }
 
 .readMore {
   font-size: 0.9rem;
-  color: #2dd4bf;
+  color: #6F8FA1;
   text-decoration: none;
+  font-weight: 500;
   transition: all 0.2s ease;
 }
 
 .readMore:hover {
-  color: #fff;
+  color: #1a1a1a;
   transform: translateX(4px);
 }
 

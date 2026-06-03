@@ -1,3 +1,7 @@
+.main {
+  padding-top: var(--header-height);
+}
+
 .blogPage {
   max-width: 900px;
   margin: 0 auto;
@@ -6,20 +10,21 @@
 
 .hero {
   text-align: center;
-  padding: 4rem 0 3rem;
+  padding: var(--space-20) 0 var(--space-12);
   margin-bottom: 2rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .heroTitle {
-  font-size: 3rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
   margin-bottom: 1rem;
   color: #1a1a1a;
+  font-family: var(--font-serif);
 }
 
 .heroSubtitle {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   color: #666;
   max-width: 500px;
   margin: 0 auto;

@@ -18,7 +18,8 @@ const itemVariants = {
 
 export function Blog() {
   return (
-    <div className={styles.blogPage}>
+    <div className={styles.main}>
+      <div className={styles.blogPage}>
       <motion.div
         className={styles.hero}
         initial={{ opacity: 0, y: -20 }}
@@ -67,6 +68,7 @@ export function Blog() {
           </motion.article>
         ))}
       </motion.div>
+      </div>
     </div>
   );
 }
